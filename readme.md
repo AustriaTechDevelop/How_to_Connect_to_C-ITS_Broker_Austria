@@ -42,12 +42,12 @@ Before connecting, you need a client certificate to authenticate your AMQP clien
 
 ### Generating a Certificate Signing Request (CSR) with OpenSSL
 
-**Step 1 — Generate a new key pair:**
+**Step 1 - Generate a new key pair:**
 ```bash
 openssl ecparam -out c-roads-client.key -name prime256v1 -genkey
 ```
 
-**Step 2 — Generate the CSR:**
+**Step 2 - Generate the CSR:**
 ```bash
 openssl req -new -key c-roads-client.key -out c-roads-client.csr
 ```
