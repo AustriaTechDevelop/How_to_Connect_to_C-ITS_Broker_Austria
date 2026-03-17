@@ -1,4 +1,5 @@
-## C-ITS Broker Austria — How to Connect
+![alt text](https://github.com/AustriaTechDevelop/How_to_Connect/blob/main/img/Logo.png?raw=true)
+## C-ITS Broker Austria - How to Connect
 
 This document explains the technical details for external organisations connecting to the C-ITS Broker Austria.
 
@@ -8,8 +9,8 @@ This document explains the technical details for external organisations connecti
 
 | | |
 |---|---|
-| **Endpoint** | `amqps://amqp.croads-broker.at:5671` |
-| **Target address** (C-Roads messages) | `croads`, `testing` |
+| **URL** | `amqps://amqp.croads-broker.at:5671` |
+| **Topics** | `croads`, `testing` |
 
 ---
 
@@ -19,13 +20,13 @@ Before connecting, you need a client certificate to authenticate your AMQP clien
 
 ---
 
-### Required Information in Your Request
+### Required Information for Your Request
 
-1. **PKCS#10 Certificate Signing Request** — see instructions below
-3. **Contact person name** for the respective client(s)
-4. **Client role** — see role descriptions below
-5. **Publisher ID** *(publishing clients only)* — obtainable via Austrian Standards
-6. **Authorization confirmation** *(contractors only)* — a confirmation from the contracting party stating you are authorized to act on their behalf, along with their Publisher ID
+1. **PKCS#10 Certificate Signing Request**: see instructions below
+2. **Client role**: see role descriptions below
+3. **Contact person name** for the respective client
+4. **Publisher ID**: obtainable via Austrian Standards *(publishing clients only)*
+5. **Authorization confirmation**: a confirmation from the contracting party stating you are authorized to act on their behalf, along with their Publisher ID *(contractors only)*
 
 ---
 
@@ -33,9 +34,9 @@ Before connecting, you need a client certificate to authenticate your AMQP clien
 
 | Role | Description |
 |---|---|
-| **subscription-only** | Can receive messages from the broker. Any messages sent for publishing will be rejected. |
-| **pub-sub** | Can receive and publish messages. Published messages must pass validation of the ITS message's secured GeoNetworking header. *(Guest role)* |
-| **trusted-pub-sub** | Can receive and publish messages. Messages are published immediately without validation. *(For cities or regional C-ITS actors with active C-ITS stations generating regular messages)* |
+| **subscription-only** | Client can receive messages from the broker. Any message sent to the broker by the client for publishing will be rejected. |
+| **pub-sub** | Client can receive and publish messages on the C-ITS Broker Austria. Any messages sent to the broker by the client for publishing will be published if a validation of the ITS message’s secured GeoNetworking header returns successfully *(Guest role)*. |
+| **trusted-pub-sub** | client can receive and publish messages on the C-ITS Broker Austria. Messages sent to the broker by the client will be published immediately without any validation of the message body *(This client request is for a city or a regional C-ITS actor with active C-ITS stations generating regular messages)* |
 
 ---
 
@@ -54,8 +55,7 @@ openssl req -new -key c-roads-client.key -out c-roads-client.csr
 Attach the resulting `c-roads-client.csr` file to your certificate request email.
 
 ### Subscription Client
-For subscribing to the C-ITS Broker Austria, AustriaTech provides a public client. It enables subscription using Apache Qpid Proton and is available on GitHub:
-
+For subscribing to the C-ITS Broker Austria, AustriaTech provides a client using Apache Qpid Proton, available on GitHub:
 `https://github.com/AustriaTechDevelop/C-ITS-Broker-Austria-Subscription-Client`
 
 
