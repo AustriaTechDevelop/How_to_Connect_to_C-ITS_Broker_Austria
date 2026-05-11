@@ -16,7 +16,7 @@ This document explains the technical details for external organisations connecti
 
 ## Client Certificate Request
 
-Before connecting, you need a client certificate to authenticate your AMQP client. Request one by emailing **c-itsbrokerat@austriatech.at** with the following information:
+Before connecting, reach out to [c-itsbrokerat@austriatech.at](mailto:c-itsbrokerat@austriatech.at) to confirm your eligibility. Once confirmed, request a client certificate to authenticate your AMQP client by sending the following information to the same address:
 
 ---
 
