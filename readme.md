@@ -51,6 +51,8 @@ openssl ecparam -out c-roads-client.key -name prime256v1 -genkey
 ```bash
 openssl req -new -key c-roads-client.key -out c-roads-client.csr
 ```
+> [!IMPORTANT]
+> Do not set a ```challengePassword``` when generating the CSR
 
 Attach the resulting `c-roads-client.csr` file to your certificate request email.
 
