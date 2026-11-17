@@ -56,6 +56,8 @@ openssl req -new -key c-roads-client.key -out c-roads-client.csr
 
 Attach the resulting `c-roads-client.csr` file to your certificate request email.
 
+---
+
 ### Subscription Client
 For subscribing to the C-ITS Broker Austria, AustriaTech provides a client using Apache Qpid Proton, available on GitHub:
 `https://github.com/AustriaTechDevelop/C-ITS-Broker-Austria-Subscription-Client`
